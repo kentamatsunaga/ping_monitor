@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <mete charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!--    <meta http-equiv="refresh" content = 5>>
+	      <link href="css/rx_monitor.css" rel="stylesheet"> -->
+      <title >PC Monitor</title>
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <script type="text/javascript">
+	var now = new Date();
+	function LoadProc() {
+	var target = document.getElementById("DateTimeDisp");
+
+	var Year = now.getFullYear();
+	var Month = now.getMonth();
+	var Date = now.getDate();
+	var Hour = now.getHours();
+	var Min = now.getMinutes();
+	var Sec = now.getSeconds();
+
+	target.innerHTML = Year + "年" + Month + "月" + Date + "日" + Hour + "時" + Min + "分" + Sec +\
+	"秒";
+	}
+	function koshin(){
+	location.reload();
+	}
+      </script>
+  </head>
+  <body onload='LoadProc()'>
+    最終更新時刻:
+    <div id="DateTimeDisp"></div>
+    <hr />
+    <div class="container">
+      <div class="header">
+	<center>
+	  <h3 class="text-muted">PC Monitor</h3>
+	  {% for ip ,name,  stable in PING %}
+	  <p>{{ip}} : {{name}} : <font  color="#0000ff">{{stable}}</font></p>
+	  {% endfor %}
+	</center>
+      </div>
+    </div>
+    <input type="button"  value="更新" onclick="koshin()">
+  </body>
+
+  
