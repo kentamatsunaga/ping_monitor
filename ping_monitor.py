@@ -22,7 +22,7 @@ for line in a:
 ping = []
 stable = []
 
-@app.route('/ping_monitor')
+@app.route('/')
 def ping_monitor():
     for i in range(len(ip)):
         p = subprocess.call(['ping','-c','1','-W','1',ip[i]])
