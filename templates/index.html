@@ -37,7 +37,11 @@
 	<center>
 	  <h3 class="text-muted">PC Monitor</h3>
 	  {% for ip ,name,  stable in PING %}
+	  {% if stable == "Connection OK!!!!!" %}
 	  <p>{{ip}} : {{name}} : <font  color="#0000ff">{{stable}}</font></p>
+	  {% else %}
+	  <p>{{ip}} : {{name}} : <font  color="#ff4500">{{stable}}</font></p>
+	  {% endif %}
 	  {% endfor %}
 	</center>
       </div>
