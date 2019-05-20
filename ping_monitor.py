@@ -16,7 +16,6 @@ name = []
 
 for line in a:
     l = line.split()
-    print(l)
     ip.append(l[0])
     name.append(l[1])
 
@@ -29,7 +28,6 @@ def ping_monitor():
     for i in range(len(ip)):
         p = subprocess.call(['ping','-c','1','-W','1',ip[i]])
         ping.append(p)
-        
         if p == 0:
             stable.append('Connection OK!!!!!')
         else :
