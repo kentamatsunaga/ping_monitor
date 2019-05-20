@@ -13,8 +13,10 @@ a = f.readlines()
 ip = []
 name = []
 
+
 for line in a:
     l = line.split()
+    print(l)
     ip.append(l[0])
     name.append(l[1])
 
@@ -31,9 +33,8 @@ def ping_monitor():
         if p == 0:
             stable.append('Connection OK!!!!!')
         else :
-            stable.append('No Connection!!!!!!')
-            
-            return render_template('index.html',PING = zip(ip, name, stable))
+            stable.append('No Connection!!!!!!')            
+    return render_template('index.html',PING = zip(ip, name, stable))
         
 if __name__ == "__main__":
     app.run(host='0.0.0.0',debug=True, port=9888)
