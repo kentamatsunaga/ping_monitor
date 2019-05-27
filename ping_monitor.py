@@ -20,11 +20,11 @@ for line in a:
     name.append(l[1])
 
 
-ping = []
-stable = []
 
 @app.route('/')
 def ping_monitor():
+    ping = []
+    stable = []
     now = datetime.utcnow()
     date = now.strftime("%Y-%m-%d %H:%M:%S")
     for i in range(len(ip)):
@@ -37,6 +37,6 @@ def ping_monitor():
     return render_template('index.html',PING = zip(ip, name, stable), date = date)
         
 if __name__ == "__main__":
-    app.run(host='0.0.0.0',debug=True, port=9888)
+    app.run(host='0.0.0.0',debug=True, port=9888, threaded = True)
                 
                                                                             
